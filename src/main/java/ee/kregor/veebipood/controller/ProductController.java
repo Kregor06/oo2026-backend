@@ -33,8 +33,8 @@ public class ProductController {
 
     // localhost:8080/products?page=0&size=4&sort=price,asc
     @GetMapping("products")
-    public List<Product> getProducts(Pageable pageable) {
-        return productRepository.findAll(pageable).getContent();
+    public Page<@NonNull Product> getProducts(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     @GetMapping("products/admin")
